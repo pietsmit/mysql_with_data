@@ -25,6 +25,9 @@ The following environment variables are from the official image:
 The volume parameter **-v $(pwd)/myschema.sql:/tmp/import_database.sql** will run the sql script myschema.sql on mysql startup. For best results, use the database defined in the MYSQL_DATABASE variable.
 
 # Much more is possible if you use the included shell scripts:
+
+The full project with scripts can be downloaded from (GitHub)[https://github.com/pietsmit/mysql_with_data].
+
 ## Creating your own image containing a specific schema
 
 Let's say that you have an database schema that is static and will be reused a lot. You can create an image for it in the following way:
