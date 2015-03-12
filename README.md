@@ -13,7 +13,7 @@ This image extends the [offical MySQL image](https://registry.hub.docker.com/_/m
 ## Quick start
 
 You came here for this:
-> docker run -e MYSQL_USER=dba -e MYSQL_PASSWORD=password -e MYSQL_DATABASE=testdb **-v $(pwd)/myschema.s/tmp/import_database.sql** mysql_with_data
+> docker run -e MYSQL_USER=dba -e MYSQL_PASSWORD=password -e MYSQL_DATABASE=testdb -v $(pwd)/myschema.sql:/tmp/import_database.sql mysql_with_data
 
 The following environment variables are from the official image:
 
