@@ -26,7 +26,7 @@ The volume parameter **-v $(pwd)/myschema.sql:/tmp/import_database.sql** will ru
 
 # Much more is possible if you use the included shell scripts:
 
-The full project with scripts can be downloaded from (GitHub)[https://github.com/pietsmit/mysql_with_data].
+The full project with scripts can be downloaded from [GitHub](https://github.com/pietsmit/mysql_with_data).
 
 ## Creating your own image containing a specific schema
 
