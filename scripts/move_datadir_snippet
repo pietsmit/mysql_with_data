@@ -1,0 +1,4 @@
+       if [ "$MYSQL_DIR" ];  then
+           echo "Moving MySql data directory to $MYSQL_DIR"
+           sed -i "s#/var/lib/mysql#$MYSQL_DIR#g" /etc/mysql/my.cnf
+        fi

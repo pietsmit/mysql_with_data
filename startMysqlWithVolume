@@ -1,0 +1,29 @@
+#!/bin/bash
+# -- Inspired by http://www.alexecollins.com/docker-persistence --
+
+function createDataVolume {
+  cat > TMPDOCKER <<-DOCKER
+   FROM busybox
+   VOLUME $DATADIR
+   CMD ["true"] 
+DOCKER
+
+  docker build -t dataimage_$1 -f TMPDOCKER .
+  rm -f TMPDOCKER
+  docker run --name $1_data dataimage_$1
+}
+
+DATADIR=/var/lib/$1
+
+createDataVolume $1
+
+docker run -p 3307:3306 \
+--volumes-from $1_data \
+-e MYSQL_ROOT_PASSWORD=password  \
+-e MYSQL_USER=dba \
+-e MYSQL_PASSWORD=password \
+-e MYSQL_DATABASE=testdb \
+-e DEV_ACCESS=true \
+-e IMPORT_DB=true \
+-e MYSQL_DIR=$DATADIR \
+mysql_with_data /bin/bash
