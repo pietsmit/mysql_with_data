@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t mysql_with_data .
+docker build -t drakedroid/mysql-with-data .

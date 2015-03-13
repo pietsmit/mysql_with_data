@@ -1,4 +1,4 @@
-# mysql_with_data
+# mysql-with-data
 
 ## Overview
 
@@ -13,7 +13,7 @@ This image extends the [offical MySQL image](https://registry.hub.docker.com/_/m
 ## Quick start
 
 You came here for this:
-> docker run -e MYSQL_USER=dba -e MYSQL_PASSWORD=password -e MYSQL_DATABASE=testdb -v $(pwd)/myschema.sql:/tmp/import_database.sql mysql_with_data
+> docker run -e MYSQL_ROOT_PASSWORD=root  -e MYSQL_USER=dba -e MYSQL_PASSWORD=password -e MYSQL_DATABASE=testdb -v $(pwd)/myschema.sql:/tmp/import_database.sql drakedroid/mysql-with-data
 
 The following environment variables are from the official image:
 
@@ -34,7 +34,7 @@ Let's say that you have an database schema that is static and will be reused a l
 
 1.      Replace the **import_database.sql** with your own schema. Note that the name will have to stay the same.
 2.      Create a new image called mysql_with_data, containing your schema:
-> docker **build** -t mysql_with_data .
+> docker **build** -t mysql-with-data .
 3.      **./startMysqlWithVolume** myimagename
 
 Behind the scenes, the following is happening.
@@ -65,6 +65,3 @@ The following are new variables you can use:
 1. DEV_ACCESS=true, explicitly opens up mysql to listen on 0.0.0.0
 2. IMPORT_DB=true, imports the database included in the image at */tmp/import_database.sql*, or the file that is linked to that location from the host machine. For examples how this works, see the two shell scrip$
 3. MYSQL_DIR=*/some/new/dir*, all the mysql database files will be created in this directory.
-
-
-

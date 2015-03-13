@@ -26,4 +26,4 @@ docker run -p 3307:3306 \
 -e DEV_ACCESS=true \
 -e IMPORT_DB=true \
 -e MYSQL_DIR=$DATADIR \
-mysql_with_data /bin/bash
+drakedroid/mysql-with-data /bin/bash
